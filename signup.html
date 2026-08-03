@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">RC Fruits - Sign Up</title>
+    <!-- Google Fonts for Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1e293b">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="stylesheet" href="bala.css">
+    <style>
+        .signup-card {
+            max-width: 440px;
+            margin: auto;
+            padding: 2.5rem 2.2rem;
+            text-align: center;
+            margin-top: 5vh;
+            margin-bottom: 5vh;
+            width: 100%;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.85), rgba(15, 23, 42, 0.98));
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 
+                        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            animation: card-appear 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes card-appear {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .signup-card h2 {
+            margin-bottom: 1.8rem;
+            font-weight: 700;
+            font-size: clamp(1.4rem, 5vw, 1.8rem);
+            background: linear-gradient(to right, #60a5fa, #c084fc, #f43f5e, #60a5fa);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 4s linear infinite;
+            letter-spacing: -0.5px;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .input-group {
+            margin-bottom: 1.3rem;
+            text-align: left;
+            position: relative;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #94a3b8;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .input-group:focus-within label {
+            color: #60a5fa;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(15, 23, 42, 0.6);
+            color: white;
+            outline: none;
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            font-size: 15px;
+            min-height: 46px;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            border-color: #60a5fa;
+            background: rgba(15, 23, 42, 0.9);
+            box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15);
+        }
+
+        #signup-btn {
+            width: 100%;
+            justify-content: center;
+            margin-top: 1.2rem;
+            min-height: 48px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            background: linear-gradient(to right, #3b82f6 0%, #8b5cf6 50%, #3b82f6 100%);
+            background-size: 200% auto;
+            border: none;
+            border-radius: var(--radius-sm);
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.25);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        #signup-btn:hover {
+            background-position: right center;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 24px rgba(139, 92, 246, 0.4);
+        }
+
+        #signup-btn:active {
+            transform: translateY(1px);
+        }
+
+        .toggle-pwd {
+            transition: color 0.3s, transform 0.3s !important;
+        }
+
+        .toggle-pwd:hover {
+            transform: translateY(-50%) scale(1.15) !important;
+            color: #60a5fa !important;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0.75rem 0.5rem;
+            }
+
+            .signup-card {
+                padding: 1.8rem 1.2rem;
+                margin-top: 2vh;
+                border-radius: 20px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-animation"></div>
+
+    <div class="app-container glassmorphism signup-card">
+        <h2 id="signup-title">📝 Sign Up / Registration</h2>
+
+        <div id="signup-alert" class="alert hidden"></div>
+
+        <div class="input-group">
+            <label>Username</label>
+            <input type="text" id="signup-username" placeholder="Enter new username">
+        </div>
+
+        <div class="input-group">
+            <label>Password</label>
+            <div style="position: relative;">
+                <input type="password" id="signup-password" placeholder="Enter password" style="padding-right: 2.5rem;">
+                <span id="toggle-signup-password" class="toggle-pwd"
+                    style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; opacity: 0.7;"
+                    title="Toggle Password Visibility">👁️</span>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>Confirm Password</label>
+            <div style="position: relative;">
+                <input type="password" id="signup-confirm-password" placeholder="Confirm password" style="padding-right: 2.5rem;">
+                <span id="toggle-signup-confirm" class="toggle-pwd"
+                    style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; opacity: 0.7;"
+                    title="Toggle Password Visibility">👁️</span>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>Company Name</label>
+            <input type="text" id="signup-company-name" placeholder="Enter company name (e.g. RCFruits)">
+        </div>
+
+        <button id="signup-btn" class="btn-primary">
+            <span class="btn-text">Save / Sign Up</span>
+        </button>
+
+        <div style="margin-top: 1.5rem; text-align: center;">
+            <a href="login.html" id="back-to-login" style="color: #60a5fa; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#93c5fd'" onmouseout="this.style.color='#60a5fa'">Already have an account? Go to Login</a>
+        </div>
+    </div>
+
+    <script src="signup.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(reg => console.log('Service Worker registered'))
+                .catch(err => console.log('Service Worker error', err));
+        }
+    </script>
+</body>
+
+</html>

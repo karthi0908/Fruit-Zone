@@ -1,0 +1,17 @@
+{
+  "name": "RC Fruits",
+  "short_name": "RC Fruits",
+  "start_url": "./login.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#1e293b",
+  "description": "Daily sales tracker for Bala's fruit business.",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+# Maven build output
+target/
+*.jar
+*.war
+*.ear
+
+# Maven tools & installations
+apache-maven-*/
+maven/
+
+# Database & local data
+data/
+*.db
+*.sqlite
+
+# IDE & Editor configs
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Agent configs
+.agents/
+
+# OS files
+.DS_Store
+Thumbs.db
